@@ -256,7 +256,8 @@ df_current = df[df['payment_date'].dt.year == current_year]
 monthly_sales = df_current.groupby(df_current['payment_date'].dt.month)['paid_amount'].sum()
 
 # ❌ 避免：硬编码数值
-# sales = [1000, 2000, 3000, ...]  # 不推荐
+# months = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+# sales = [15000, 18500, 22000, 19800, 24500, 28000, 31200, 26800, 23500, 21000, 25600, 32000]  # 不推荐
 ```
 
 ### 处理缺失数据
@@ -351,8 +352,8 @@ ax.text(x, y + height/2, growth_text, ha='center', va='center',
 ```python
 import matplotlib.pyplot as plt
 
-# 设置中文字体
-plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans']
+# 设置中文字体 (包含多个备选字体以确保跨平台兼容性)
+plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'Arial Unicode MS', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
 ```
 
@@ -419,8 +420,8 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch
 from scipy.interpolate import make_interp_spline
 
-# 设置中文字体
-plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans']
+# 设置中文字体 (包含多个备选字体以确保跨平台兼容性)
+plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'Arial Unicode MS', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
 # 读取数据
