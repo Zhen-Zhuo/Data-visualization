@@ -116,7 +116,7 @@ ax.set_facecolor('#0f1730')
 ax.plot(months, sales, color='#4fa5ff', linewidth=2, alpha=0.7, zorder=1)
 
 # 绘制菱形标记
-diamond_size = max(sales) * 0.03
+diamond_size = max(sales, default=0) * 0.03 if sales else 0
 colors = ['#7edbf3', '#3cb4a1', '#f07a57', '#f4c338', '#4fa5ff', 
           '#1678d8', '#7d66ff', '#9b88ff', '#c94a64', '#5cd65c', '#ff9f40', '#ff6b9d']
 
@@ -140,7 +140,7 @@ ax.set_title('2025年月度销售菱形走势图', color='white', fontsize=16, f
 ax.set_xticks(months)
 ax.set_xticklabels([f'{m}月' for m in months], color='white')
 ax.tick_params(colors='white')
-ax.set_ylim(0, max(sales) * 1.2)
+ax.set_ylim(0, max(sales, default=0) * 1.2 if sales else 100)
 ax.grid(True, linestyle='--', alpha=0.3, color='#2b3f63')
 for spine in ax.spines.values():
     spine.set_color('#2b3f63')
